@@ -1,0 +1,39 @@
+
+<main>
+  <div class="paginas">
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Nombre:</strong>
+    <%= @course.nombre %>
+  </p>
+
+  <p>
+    <strong>Descripcion:</strong>
+    <%= @course.descripcion %>
+  </p>
+
+  <p>
+    <strong>Valor sesion:</strong>
+    <%= @course.valor_sesion %>
+  </p>
+
+  <p>
+    <strong>Valor total:</strong>
+    <%= @course.valor_total %>
+  </p>
+
+  <p>
+    <strong>Categoria:</strong>
+    <%= @course.id_category_id %>
+  </p>
+  <br>
+  <div align="center">
+    <table ><tr>
+      <td width="100"><%=link_to "Editar", edit_course_path(@course) %></td>
+      <td width="100"><%=link_to "Atrás", courses_path%></td>
+    </tr>
+    </table>
+  </div>
+    </div>
+</main>

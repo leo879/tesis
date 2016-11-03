@@ -1,0 +1,136 @@
+<%= form_for @membership, :html => {:multipart => true} do |f| %>
+  <% if @membership.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@membership.errors.count, "error") %> prohibited this membership from being saved:</h2>
+
+      <ul>
+      <% @membership.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div >
+      <table width="500">
+        <tr>
+          <td>
+            Tipo de documento
+          </td>
+          <td>Numero de documento</td>
+        </tr>
+        <tr>
+          <td>
+            <Select  id="tipo_documento" name="tipo_documento">
+              <option value="C.C">C.C</option>
+              <option value="T.I">T.I</option>
+              <option value="C.E">C.E</option>
+            </Select>
+          </td>
+          <td>
+            <input id="documento" name="documento" >
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div>
+      <table width="500">
+        <tr>
+          <td>Nombre</td>
+          <td>Apellido</td>
+        </tr>
+        <tr>
+          <td><input id="nombre" name="nombre"></td>
+          <td><input id="apellido" name="apellido"></td>
+        </tr>
+        <tr>
+          <td> Teléfono</td>
+          <td> 	Dirección</td>
+        </tr>
+        <tr>
+          <td><input id="telefono" name="telefono"></td>
+          <td><input id="direccion" name="direccion"></td>
+        </tr>
+        <tr>
+          <td> País</td>
+          <td> 	Ciudad</td>
+        </tr>
+        <tr>
+          <td>
+            <select name="pais" >
+              <option value="Colombia">Colombia</option>
+            </select></td>
+          </td>
+          <td>
+            <select name="ciudad" >
+              <option value="Armenia">Armenia</option>
+              <option value="Barranquilla">Barranquilla</option>
+              <option value="Bogota">Bogota</option>
+            </select></td>
+          </td>
+        </tr>
+
+      </table>
+
+      <table width="500">
+        <tr>
+          <td alig align="center" n="center">
+            Correo electrónico
+          </td>
+        </tr>
+        <tr>
+          <td align="center" ><input id="email" name="email" size="30" type="email"></td>
+        </tr>
+      </table>
+    </div>
+<hr noshade="">
+  <div class="field">
+    <table width="700">
+      <tr>
+        <td>
+          Sociedad
+        </td>
+        <td>
+          Periodicidad
+        </td>
+        <td>
+          Valor a pagar
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.select(:society_id, @society_options) %>
+        </td>
+        <td>
+          <%= f.select :periodicidad, ['Anual','Semestral', 'Mensual']%></td>
+
+        </td>
+        <td>
+          <input id="Valor_pago" name="valor_pago" type="number">
+        </td>
+      </tr>
+    </table>
+
+
+  </div>
+    <div>
+      <table width="500">
+        <tr>
+          <td>   Forma de pago:<select name="formaDePago">
+            <%= @formasDePago.each do |forma| %>
+                <option value="<%= forma.id %>"><%= forma.nombre %></option>
+            <% end %>
+          </select></td>
+          <td>  Valor Recibido:<input id="valor_recibido" name="valor_recibido" placeholder="Valor recibido" type="number" min="1"></td>
+        </tr>
+      </table>
+
+      <h5>Soporte de pago:</h5>
+      <input id="soporte" name="soporte" type="file">
+      <br><br>
+    </div>
+
+
+  <div class="actions">
+    <%= f.submit "Afiliar"%>
+  </div>
+<% end %>

@@ -1,0 +1,16 @@
+<main>
+<div class="paginas">
+  <div align="center"> <h4>Nombre:<%= @category.nombre %></h4><br>
+  <h4>Descripcion:</h4>
+    <%= @category.descripcion %>
+</div>
+  <br>
+    <div align="center">
+      <table ><tr>
+        <td width="100"><%=link_to "Editar", edit_category_path(@category)  %></td>
+        <td width="100"><%=link_to "Atrás", categories_path %></td>
+      </tr>
+      </table>
+    </div>
+</div>
+</main>

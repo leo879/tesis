@@ -1,0 +1,100 @@
+
+<head>
+  <meta charset="utf-8">
+  <title>Gestion Sociedades</title>
+
+</head>
+<main>
+
+
+    <h3>Centro de Meditación Budista Yamantaka</h3>
+    <h5>NIT. </h5>
+    <h5> Cra. 27 #61D-27, Bogotá</h5>
+    <h5>305 7068754</h5>
+  <p id="notice"><%= notice %></p>
+
+
+  <p>
+    <strong>Fecha:</strong>
+    <strong><%=  @receipt.created_at %></strong>
+
+  </p><br>
+  
+    <table  align="center">
+      <tr>
+        <td width="140">
+          <p>
+            <strong>Nombre del socio:</strong>
+          </p>
+        </td>
+        <td width="250">
+          <%= @receipt.client.nombre %> <%=@receipt.client.apellido%>
+        </td>
+
+      </tr>
+      <tr>
+        <td>
+          <p>
+            <strong>Documento:</strong>
+
+          </p>
+        </td>
+        <td>
+          <%= @receipt.client.tipo_documento %> <%=@receipt.client.documento%>
+        </td>
+      </tr>
+      <tr>
+        <td>
+
+          <p>
+            <strong>Sociedad:</strong>
+          </p>
+        </td>
+        <td><%= @receipt.membership.society.nombre %></td>
+      </tr>
+      <tr>
+        <td>
+          <p>
+            <strong>Forma de Pago:</strong>
+          </p>
+        </td>
+        <td>
+          <%= @receipt.forma_de_pago.nombre %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>
+            <strong>Valor Cancelado:</strong>
+
+          </p>
+        </td>
+        <td>
+          <%= @receipt.valor_total %>
+        </td>
+      </tr>
+
+    </table>
+  <table>
+    <tr>
+      <td>
+        <%= image_tag @receipt.soporte.url(), title: 'afiliar', :width => "200px", :height => "200px"%>
+
+      </td>
+    </tr>
+  </table>
+
+
+
+
+
+
+
+
+  <%= link_to 'Atrás', receipts_path %>
+
+
+
+
+
+</main>

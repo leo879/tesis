@@ -1,0 +1,18 @@
+
+<main>
+<div class="paginas">
+  <br><br>
+  <table width="1000" border="0" align="center">
+    <thead>
+    <tr>
+      <td align="center"> <%= link_to image_tag('mas.png', title: 'Nueva categoria', :width => "30px", :height => "30px"), new_category_path  %><br>
+        <%= link_to 'Nueva Categoria', new_category_path %></td>
+    </tr>
+    </thead>
+  </table>
+  <br>
+  
+  <%= render 'category',obj:@categories %>
+
+</div>
+</main>

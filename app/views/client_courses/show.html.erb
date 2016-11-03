@@ -1,0 +1,21 @@
+<div class="paginas">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @client_course.client %>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @client_course.course %>
+</p>
+<br>
+<div align="center">
+  <table ><tr>
+    <td width="100"><%=link_to "Editar", edit_client_course_path(@client_course)  %></td>
+    <td width="100"><%=link_to "Atrás", edit_client_course_path(@client_course) %></td>
+  </tr>
+  </table>
+</div>
+</div>

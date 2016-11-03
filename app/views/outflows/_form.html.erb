@@ -1,0 +1,79 @@
+<%= form_for(@outflow) do |f| %>
+  <% if @outflow.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@outflow.errors.count, "error") %> prohibited this outflow from being saved:</h2>
+
+      <ul>
+      <% @outflow.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <table>
+      <tr>
+        <td>
+          <strong>Fecha</strong>
+        </td>
+        <td>
+          <strong>Numero de factura</strong>
+
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.date_select :feha, :end_year =>(Date.today.year), :html=>{}  %>
+        </td>
+        <td>
+          <%= f.number_field :numero_factura %>
+        </td>
+
+      </tr>
+    </table>
+
+
+  </div>
+
+  <div class="field">
+    <table>
+      <tr>
+        <td width="300">
+          <strong>Nit</strong>
+        </td>
+        <td width="300">
+          <strong>Entidad</strong>
+
+        </td>
+      </tr>
+        <tr>
+        <td>
+          <strong><%= f.number_field :nit %></strong>
+        </td>
+        <td>
+          <%= f.text_field :entidad %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Concepto</strong>
+        </td>
+        <td>
+          <strong>Valor</strong>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.text_field :concepto  %>
+        </td>
+        <td>
+          <%= f.text_field :valor %>
+        </td>
+      </tr>
+    </table></div><br>
+
+  <div class="actions" >
+    <%= f.submit "Guardar", data: { confirm: 'Desea guardar cambios?' } %>
+  </div>
+<% end %>

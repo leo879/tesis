@@ -1,0 +1,70 @@
+<main>
+<div class="paginas">
+  <h1>Afiliación Sociedad</h1>
+<%= form_for @client, :html => {:multipart => true} do |form| %>
+
+    <% @client.errors.full_messages.each do |message| %>
+          * <%= message %>
+    <% end %>
+        <table width="500">
+          <tr>
+            <td>
+              <%= form.select :tipo_documento, ['Cédula de Ciudadanía','Tarjeta de Identidad','Cédula de Extranjería'], :prompt => 'Tipo de documento' %>
+            </td>
+            <td>
+              Numero de documento:<%= form.text_field :documento, placeholder: "Ejm: 1026579546"  %>
+            </td>
+          </tr>
+          <tr>
+            <td>Nombre:<%= form.text_field :nombre, placeholder: "Ejm: Esteban"  %></td>
+            <td>Apellido:<%= form.text_field :apellido, placeholder: "Ejm: Cardenas"  %></td>
+          </tr>
+          <tr>
+            <td>Teléfono<%= form.text_field :telefono, placeholder: "Ejm: 7542364"  %> </td>
+            <td>Dirección<%= form.text_field :direccion, placeholder: "Ejm: Cll 188 # 34 - 23"  %>  </td>
+          </tr>
+          <tr>
+            <td>País:<%= form.select :pais, ['Colombia'], :prompt => 'País'  %>  </td>
+            <td>Ciudad:<%= form.select :ciudad, ['Armenia','Barranquilla', 'Bogota','Medellin','Cartagena', 'Cali'], :prompt =>'Ciudad'%></td>
+          </tr>
+        </table>
+      <div align="center">
+      <table align="center" width="300">
+      <tr>
+        <td align="center"> Correo electrónico: <%= form.email_field :email, placeholder: "Ejm: esteban@gmail.com"%> </td>
+      </tr>
+      </table>
+      </div>
+      <hr>
+      <table width="600">
+        <tr>
+
+          <td> Periodicidad de pago:<select name="periodicidad" >
+            <option value="anual">Anual</option>
+            <option value="semestral">Semestral</option>
+            <option value="mensual">Mensual</option>
+          </select></td>
+          <td>Valor a pagar:<input id="valor_pago" name="valor_pago" value="100000" type="number"  min="1" ></td>
+        </tr>
+      </table>
+<table width="400">
+  <tr>
+    <td>   Forma de pago:<select name="formaDePago">
+      <%= @formasDePago.each do |forma| %>
+          <option value="<%= forma.id %>"><%= forma.nombre %></option>
+      <% end %>
+    </select></td>
+    <td>  Valor Recibido:<input id="valor_recibido" name="valor_recibido" placeholder="Valor recibido" type="number" min="1"></td>
+  </tr>
+</table>
+        <h5>Soporte de pago:</h5>
+        <input id="soporte" name="soporte" type="file">
+      <br><br>
+      <%= form.submit "Guardar", method: :submit, data: { confirm: 'Desea guardar cambios' } %>
+
+
+<% end %>
+  </div>
+
+
+</main>

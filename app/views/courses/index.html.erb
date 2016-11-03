@@ -1,0 +1,22 @@
+<main>
+  <div class="paginas" align="center">
+  <p id="notice"><%= notice %></p>
+  <h1>Lista de Cursos</h1>
+
+    <br>
+    <table width="1000" border="0" align="center">
+      <thead>
+      <tr>
+        <td align="center"> <%= link_to image_tag('mas.png', title: 'Nuevo Curso', :width => "30px", :height => "30px"), new_course_path  %><br>
+          <%= link_to 'Nuevo curso', new_course_path %></td>
+      </tr>
+      </thead>
+    </table>
+
+    <br>
+    <%= render 'course', obj:@courses %>
+ 
+  <br>
+
+  </div>
+</main>

@@ -1,0 +1,47 @@
+  <table width="800" border="0">
+    <thead>
+    <tr>
+      <th align="left">Nombre</th>
+      <th align="left">Apellido</th>
+      <th align="left">Sociedad</th>
+
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% obj.each do |client| %>
+        <td><%= client.nombre %></td>
+        <td><%= client.apellido %></td>
+        <td> <%if client.membership != nil%>
+              <%= client.membership.society.nombre %>
+          <% end %></td>
+        <td><%= link_to image_tag('ver.png', title: 'Ver'), client %></td>
+        <%if logged_in? &&  (current_user == client.user || current_user.admin?) %>
+        <td><%= link_to image_tag('edit.png', title: 'Editar'), edit_client_path(client) %></td>
+        <td><%= link_to image_tag('eliminar.png', title: 'Eliminar'), client, method: :delete, data: { confirm: 'Esta seguro de eliminar?' } %></td>
+        <td>
+          <% if client.membership.id != nil %>
+          <%= link_to image_tag('pago.jpg', title: 'pago', :width => "30px", :height => "30px" )%>
+          <% end %>
+        </td>
+        <td>
+
+              <% if client.membership.id != nil %>
+                  <%  if client.membership.estado == true %>
+                      <%= link_to image_tag('eliminar.png', title: 'Inhabilitar', :width => "30px", :height => "30px"  )  %>
+
+                  <% end %>
+                  <%  if client.membership.estado == false %>
+                      <%= link_to image_tag('habilitar.png', title: 'habilitar', :width => "30px", :height => "30px" )  %>
+
+                  <% end %>
+              <% end %>
+
+
+        </td>
+        <% end %>
+        <tr></tr>
+    <% end %>
+    </tbody>
+  </table>

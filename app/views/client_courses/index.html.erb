@@ -1,0 +1,31 @@
+<div class="paginas">
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Client Courses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Client</th>
+      <th>Course</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @client_courses.each do |client_course| %>
+      <tr>
+        <td><%= client_course.client %></td>
+        <td><%= client_course.course %></td>
+        <td><%= link_to 'Show', client_course %></td>
+        <td><%= link_to 'Edit', edit_client_course_path(client_course) %></td>
+        <td><%= link_to 'Destroy', client_course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Client course', new_client_course_path %>
+</div>

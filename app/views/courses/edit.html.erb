@@ -1,0 +1,14 @@
+<main>
+  <div class="paginas">
+  <h1>Editar curso</h1>
+  <%= render 'form',  data: { confirm: 'Desea guardar cambios'}  %>
+  <br>
+  <div align="center">
+    <table ><tr>
+      <td width="100"><%=link_to 'Ver', @course%></td>
+      <td width="100"><%=link_to "Atrás", courses_path %></td>
+    </tr>
+    </table>
+  </div>
+  </div>
+</main>

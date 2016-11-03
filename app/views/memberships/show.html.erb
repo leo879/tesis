@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sociedad:</strong>
+  <%= @membership.society.nombre %>
+</p>
+<p>
+  <strong>Afiliado: </strong>
+  <% @membership.clients.each do |client| %>
+  <%= client.nombre %>
+      <% end %>
+
+</p>
+<p>
+  <strong>Periodicidad:</strong>
+  <%= @membership.periodicidad %>
+</p>
+
+<p>
+  <strong>Fecha afiliacion:</strong>
+  <%= @membership.fecha_afiliacion %>
+</p>
+
+<p>
+  <strong>Fecha vencimiento:</strong>
+  <%= @membership.fecha_vencimiento %>
+</p>
+
+<p>
+  <strong>Fecha de pago proxima cuota:</strong>
+  <%= @membership.fecha_cuota %>
+</p>
+
+<%= link_to 'Edit', edit_membership_path(@membership) %> |
+<%= link_to 'Back', memberships_path %>

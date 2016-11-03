@@ -1,0 +1,87 @@
+
+<main>
+  <div class="paginas">
+  <div align="center">
+  <h3>Datos del cliente</h3>
+  <table width="500">
+    <tr>
+
+
+      <td>
+        <h5>Documento: </h5>
+      </td>
+      <td>
+        <%= @client.tipo_documento %><%= @client.documento %>
+      </td>
+
+      <td>
+        <h5>Nombre: </h5>
+      </td>
+      <td>
+        <%= @client.nombre %>
+      </td>
+
+      <td>
+        <h5>Apellido: </h5>
+      </td>
+      <td>
+        <%= @client.apellido %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h5>País:</h5>
+      </td>
+      <td>
+        <%= @client.pais %>
+      </td>
+      <td>
+        <h5>Ciudad:</h5>
+      </td>
+      <td>
+        <%= @client.ciudad %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h5>Correo electronico:</h5>
+      </td>
+      <td><%= @client.email %></td>
+
+    </tr>
+    <tr>
+      <td>
+        <h5>Dirección:</h5>
+      </td>
+      <td><%= @client.direccion %></td>
+
+      <td>
+      <h5> Teléfono:</h5>
+      </td>
+      <td><%= @client.telefono %></td>
+
+    </tr>
+    <tr>
+      <td>
+        <h5>Sociedad:</h5>
+      </td>
+      <td>
+      <%if @client.membership != nil%>
+        <%= @client.membership.society.nombre %>
+        <% end %>
+      </td>
+    </tr>
+
+  </table>
+  </div><br>
+  <br>
+  <div align="center">
+    <table ><tr>
+      <td width="100"><%=link_to "Editar",  edit_client_path(@client) %></td>
+      <td width="100"><%=link_to "Atrás", clients_path(@client)%></td>
+    </tr>
+    </table>
+  </div>
+
+</div>
+</main>

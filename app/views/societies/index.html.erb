@@ -1,0 +1,16 @@
+<div class="paginas">
+<div>
+  <h3 align="center">Sociedades</h3>
+  <table width="1000" border="0" align="center">
+    <thead>
+    <tr><td align="center">
+      <%= link_to image_tag('anadir.jpg', title: 'Nueva sociedad', :width => "30px", :height => "30px" ), new_society_path  %><br>
+      <%= link_to 'Nueva Sociedad', new_society_path %></td>
+      </tr>
+    </thead>
+  </table>
+  <br>
+     <%= render 'society',obj:@societies %>
+
+  </div>
+  </div>

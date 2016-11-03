@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Egresos</h1>
+<%= link_to 'Nuevo Egreso', new_outflow_path %>
+
+<table width="900" border="1" >
+  <thead >
+    <tr>
+      <th align="left">Feha</th>
+      <th width="200">Concepto</th>
+      <th width="100">Nit</th>
+      <th width="200">Entidad</th>
+      <th>Numero factura</th>
+      <th width="120">Valor</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @outflows.each do |outflow| %>
+      <tr>
+        <td><%= outflow.feha %></td>
+        <td><%= outflow.concepto %></td>
+        <td align="center"><%= outflow.nit %></td>
+        <td align="center"><%= outflow.entidad %></td>
+        <td align="center"><%= outflow.numero_factura %></td>
+        <td align="right"><%= outflow.valor %></td>
+        <td align="center"><%= link_to image_tag('ver.png', title: 'Ver'), outflow %></td>
+        <td align="center"><%= link_to image_tag('edit.png', title: 'Editar'), edit_outflow_path(outflow) %></td>
+        <td align="center"><%= link_to image_tag('eliminar.png', title: 'Eliminar'), outflow, method: :delete, data: { confirm: 'Esta seguro de eliminar?' } %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

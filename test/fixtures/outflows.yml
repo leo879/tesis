@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  feha: 2016-10-18
+  concepto: MyString
+  nit: 1
+  entidad: MyString
+  numero_factura: 1
+  valor: 9.99
+
+two:
+  feha: 2016-10-18
+  concepto: MyString
+  nit: 1
+  entidad: MyString
+  numero_factura: 1
+  valor: 9.99

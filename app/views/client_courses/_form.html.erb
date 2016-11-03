@@ -1,0 +1,25 @@
+<%= form_for(@client_course) do |f| %>
+  <% if @client_course.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@client_course.errors.count, "error") %> prohibited this client_course from being saved:</h2>
+
+      <ul>
+      <% @client_course.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :client_id %><br>
+    <%= f.text_field :client_id %>
+  </div>
+  <div class="field">
+    <%= f.label :course_id %><br>
+    <%= f.text_field :course_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Guardar", data: { confirm: 'Desea guardar cambios'}  %>
+  </div>
+<% end %>

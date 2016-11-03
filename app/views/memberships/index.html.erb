@@ -1,0 +1,44 @@
+<div class="paginas">
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Memberships</h1>
+
+<table width="900">
+  <thead>
+    <tr>
+      <th align="left">Afiliado</th>
+      <th align="left" >Society</th>
+      <th align="center">Periodicidad</th>
+      <th align="center">Fecha afiliacion</th>
+
+      <th >Fecha cuota</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @memberships.each do |membership| %>
+      <tr>
+        <td align="left"> <% membership.clients.each do |client| %>
+              <%= client.nombre %>
+          <% end %></td>
+        <td align="left"><%= membership.society.nombre %></td>
+        <td align="center"><%= membership.periodicidad %></td>
+        <td align="center"><%= membership.fecha_afiliacion %></td>
+        <td align="center"><%= membership.fecha_vencimiento %></td>
+
+        <td><%= link_to 'Show', membership %></td>
+        <td><%= link_to 'Edit', edit_membership_path(membership) %></td>
+        <td><%= link_to 'Destroy', membership, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Inhabilitar', membership, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to image_tag('pago.jpg', title: 'Pago', :width => "30px", :height => "30px" ),'paySocietyQuota' %><br>Pagar</td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Membership', new_membership_path %>
+</div>
